@@ -11,9 +11,9 @@ from redis import Redis
 
 class TokenValidator:
     def __init__(self, token: str, user_id: int = None):
-        self._refresh_token = token
-        self._user_id = user_id
-        self._redis_conn = get_redis_connection(db_select=3)
+        self._refresh_token: str = token
+        self._user_id: int = user_id
+        self._redis_conn: Redis = get_redis_connection(db_select=3)
        
     @classmethod
     def get_user_id_from_refresh_token(self, refresh_token):
